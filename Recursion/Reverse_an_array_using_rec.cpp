@@ -2,10 +2,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void reverse(int i, int arr[], int n){
+void reverse(int arr[],int i, int n){
 	if(i>=n/2) return;
 	swap(arr[i],arr[n-i-1]);
-	reverse(i+1,arr,n);
+	reverse(arr,i+1,n);
 }
 void reverseCustom(int arr[],int low, int high){
 	if(low>=high){
@@ -21,7 +21,7 @@ int main(){
 	for(int i=0;i<n;i++){
 		cin>>arr[i];
 	}
-	reverseCustom(arr,0,n-1);
+	reverse(arr,0,n);
 	for(int i=0;i<n;i++){
 		cout<<arr[i]<<" ";
 	}
