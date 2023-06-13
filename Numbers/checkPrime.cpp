@@ -2,6 +2,9 @@
 using namespace std;
 
 bool isPrime(int n){
+	// corner case
+	if(n<=1) return false;
+	
 	bool is_prime = true;
 	for(int i=2;i<=sqrt(n);i++){
 		if(n%i==0){
