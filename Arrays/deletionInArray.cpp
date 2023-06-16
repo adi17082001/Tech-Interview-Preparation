@@ -10,14 +10,13 @@ int deleteArray(int arr[], int n, int x){
 	for(int j=i;j<n-1;j++){
 		arr[j] = arr[j+1];
 	}
-	arr[n-1]= 0;
-	return n;
+	return n-1;   // return the size of the array after reducing the element
 }
 
 int main(){
-	int arr[10] = {3,8,12,33,44,5,6};
+	int arr[10] = {3,8,12,33,44,5,6,5,4,7};
 	int n = deleteArray(arr,10,3);
-	for(int i=0;i<10;i++){
+	for(int i=0;i<n;i++){
 		cout<<arr[i]<<" ";
 	}
 }
