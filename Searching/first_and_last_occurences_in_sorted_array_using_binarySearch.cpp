@@ -38,9 +38,16 @@ int lastOccurence(int arr[], int n, int x){
 	}
 	return last;
 }
+pair<int,int>firstAndLastOccurence(int arr[], int n, int x){
+	int first = firstOccurence(arr,8,8);
+	if(first == -1) return {-1,-1};  // if first = -1, means no first occurence, that means x is not present, so no last occurence too, so return {-1,-1};
+	int last = lastOccurence(arr,8,8);
+	return {first,last};
+}
 
 int main(){
 	int arr[8] = {2, 8, 8, 8, 8, 8, 11, 13};
-	cout<<firstOccurence(arr, 8, 8)<<endl;
-	cout<<lastOccurence(arr, 8, 8)<<endl;
+	pair<int,int>ans = firstAndLastOccurence(arr,8,8);
+	cout<<ans.first<<" "<<ans.second<<endl;
+
 }
