@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int ceilingInSortedArray(int n, int x, vector<int> &arr){  
+int ceilingInSortedArray(vector<int>&arr, int n, int x){  
     int ans = -1;
 
     // Initial range of search
