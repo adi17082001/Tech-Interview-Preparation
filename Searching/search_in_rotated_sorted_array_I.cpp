@@ -1,3 +1,5 @@
+// this is a rotated sorted array, containing all DISTINCT elements.
+
 #include<bits/stdc++.h>
 using namespace std;
 
