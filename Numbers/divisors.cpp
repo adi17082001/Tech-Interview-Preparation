@@ -3,7 +3,7 @@ using namespace std;
 
 vector<int> divisors(int n){
 	vector<int>res;
-	for(int i=1;i<=sqrt(n);i++){
+	for(int i=1;i*i<=n;i++){ // we write this instead of "for(int i = 1; i <= sqrt(n); i++)" as sqrt() is a mathematical function and it will be called everytime. So to reduce time, we write like this.
 		if(n%i==0){
 			res.push_back(i);
 			if(n/i != i){
