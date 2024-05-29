@@ -12,6 +12,12 @@ void reverseArray(int arr[], int n){
   }
 }
 
+void reverseUsingRecursion(int arr[], int low, int high){
+  if (low >= high) return; // base condition
+  swap(arr[low], arr[high]);
+  reverseUsingRecursion(arr, low + 1, high - 1);
+}
+
 int main(){
   int arr[5] = {1,2,3,4,5};
   reverseArray(arr,5);
