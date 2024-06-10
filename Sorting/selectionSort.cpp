@@ -1,33 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void selectionsort(vector<int> &a){
-	int indexofMin, temp;
-	int n = a.size();
-	for(int i=0;i<n;i++){
-		indexofMin = i;
-		for(int j = i+1; j<n; j++){
-			if(a[j] < a[indexofMin]){
-				indexofMin = j;
-			}
+void selectionSort(int arr[], int n){
+	for(int i = 0; i <= n-2; i++){
+		int mini = i ;
+		for(int j = i; j <= n-1; j++){   // remember j starts from i to n-1
+			if(arr[j] < arr[mini]) mini = j;
 		}
-		// swap a[j] and a[indexofmin];
-		temp = a[i];
-		a[i] = a[indexofMin];
-		a[indexofMin] = temp;
+		swap(arr[mini], arr[i]);
 	}
 }
 
+
+
 int main(){
-	int n;
-	cin>>n;
-	vector<int> a(n);
-	for(int i=0;i<n;i++){
-		cin>>a[i];
+	int arr[5] = {4,2,3,1,5};
+	selectionSort(arr,5);
+	for(int i = 0; i < 5; i++){
+		cout<<arr[i]<<" ";
 	}
-	selectionsort(a);
-	for(int i=0;i<n;i++){
-		cout<<a[i]<<" ";
-	}
-	
 }
