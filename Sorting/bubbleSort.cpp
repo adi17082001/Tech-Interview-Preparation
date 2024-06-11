@@ -1,36 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void bubblesort(vector<int> &A){
-    int n = A.size();
-    int temp =  0;
-    int isSorted = 0;
-    for(int i = 0; i<n-1;i++){
-        isSorted = 1;
-        for(int j = 0; j< n-1-i;j++){
-            if(A[j]>A[j+1]){
-                swap(A[j], A[j+1]);
-                isSorted = 0;
-            }
-        }
-        if(isSorted){
-            return;
-        }
-    }
-
+void bubbleSort(int arr[], int n){
+	for(int i = n-1; i >= 0; i--){
+		int didSwap = 0;
+		for(int j = 0; j <= i-1; j++){
+			if(arr[j] > arr[j+1]){
+				swap(arr[j], arr[j+1]);
+				didSwap = 1; // swapped
+			}
+		}
+		if(didSwap == 0){
+			break;
+		}
+	}
 }
 
 
 int main(){
-    int n;
-    cin>>n;
-    vector<int>a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }
-    bubblesort(a);
-    
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
-    }
+	int arr[7] = {4,2,3,1,5,8,10};
+	bubbleSort(arr,7);
+	for(int i = 0; i < 7; i++){
+		cout<<arr[i]<<" ";
+	}
 }
