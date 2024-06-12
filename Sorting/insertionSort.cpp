@@ -1,30 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void insertionsort(vector<int> &a){
-	int n = a.size();
-	int key, j;
-	for(int i=0;i<=n-1;i++){
-		key = a[i];
-		j = i-1;
-
-		while(a[j]>key && j>=0){
-			a[j+1] = a[j];
+void insertionSort(int arr[], int n){
+	for(int i = 0; i <= n-1; i++){
+		int j = i;
+		while(j > 0 && (arr[j-1] > arr[j])){
+			swap(arr[j-1], arr[j]);
 			j--;
 		}
-		a[j+1] = key;
 	}
 }
 
 int main(){
-	int n;
-	cin>>n;
-	vector<int>a(n);
-	for(int i=0;i<n;i++){
-		cin>>a[i];
-	}
-	insertionsort(a);
-	for(int i=0;i<n;i++){
-		cout<<a[i]<<" ";
+	int arr[7] = {7,6,5,4,3,2,1};
+	insertionSort(arr,7);
+	for(int i = 0; i < 7; i++){
+		cout<<arr[i]<<" ";
 	}
 }
