@@ -1,21 +1,23 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int remDups(int arr[], int n){
-  int res = 1;
-  for(int i=1;i<n;i++){
-    if(arr[i] != arr[res-1]){
-      arr[res] = arr[i];
-      res++;
-    }
-  }
-  return res;
+int removeDups(vector<int>&arr){
+	int n = arr.size();
+	int i = 0;
+	for(int j = 1; j < n; j++){
+		if(arr[j] != arr[i]){
+			arr[i+1] = arr[j];
+			i++;
+		}
+	}
+	return i+1;
 }
 
+
 int main(){
-  int arr[5] = {10,20,20,30,30};
-  int res = remDups(arr,5);
-  for(int i=0;i<res;i++){
-    cout<<arr[i]<<" ";
-  }
+	vector<int>arr = {1,1,2,2,2,3,3};
+	cout<<removeDups(arr)<<endl;
+	for(auto i : arr){
+		cout<<i<<" ";
+	}	
 }
