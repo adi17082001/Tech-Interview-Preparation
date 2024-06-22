@@ -1,56 +1,84 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int getLargestElement(int arr[], int n){
-	int res = 0;
-	for(int i=1;i<n;i++){
-		if(arr[i]>arr[res]){
-			res = i;
+
+int largest(vector<int>&arr){
+	int n = arr.size();
+	// brute force
+	// sort the array and print arr[n-1];
+	// mergeSort(arr,0,n-1);
+	// return arr[n-1];
+	// it takes O(NlogN);
+
+	// better
+	int largest = arr[0];
+	for(int i = 1; i < n; i++){
+		if(arr[i] > largest){
+			largest = arr[i] ;
 		}
 	}
-	return res;
+	return largest;
 }
 
+int secondLargest(vector<int>&arr){
+	
+	// brute force
 
-// Naive approach:
-
-int secondLargest(int arr[], int n){
-	int largest = getLargestElement(arr,n);
-	int res = -1;
-
-	for(int i=0;i<n;i++){
-		if(arr[i]!=arr[largest]){
-			if(res==-1){
-				res = i;
-			}
-			else if(arr[i]>arr[res]){
-				res = i;
-			}
+	/* int n = arr.size();
+	mergeSort(arr,0,n-1);
+	int sLargest = INT_MIN;
+	int large = largest(arr);
+	for(int i = n-2; i >= 0 ; i--){
+		if(arr[i] < large){
+			sLargest = arr[i];
+			break;
 		}
 	}
-	return res;
-}
+	return sLargest;
+	*/
 
-//Efficient approach:
 
-int getSecondLargest(int arr[], int n){
-	int res = -1, largest = 0;
-	for(int i=1;i<n;i++){
-		if(arr[i]>arr[largest]){
-			res = largest;
-			largest  = i;
-		}
-		else if(arr[i]<=arr[largest]){
-			if(res== -1 || arr[i]>arr[res]){
-				res = i;
-			}
+	// better
+	/* int n = arr.size();
+	int sLargest = -1;
+	int largestNum = largest(arr);
+	for(int i = 0; i < n; i++){
+		if(arr[i] > sLargest && arr[i] != largestNum){
+			sLargest = arr[i];
 		}
 	}
-	return arr[res];
+	return sLargest;
+	*/
+	
+
+	//optimal
+	int n = arr.size();
+	int largest = arr[0];
+	int sLargest = INT_MIN;
+	for(int i = 0; i < n; i++){
+		if(arr[i] > largest){
+			sLargest = largest;
+			largest = arr[i];
+		}
+		else if(arr[i] < largest && arr[i] > sLargest){
+			sLargest = arr[i];
+		}
+	}
+	return sLargest;
 }
+
 
 
 int main(){
-	int arr[] = {1,2,3,4,5};
-	cout<<getSecondLargest(arr,5);
+	vector<int>arr;
+	int n;
+	cin>>n;
+	for(int i = 0; i < n; i++){
+		int x;
+		cin>>x;
+		arr.push_back(x);
+	}
+	
+	cout<<secondLargest(arr);
+
 }
