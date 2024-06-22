@@ -1,14 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool isSorted(int arr[], int n){
+bool isSorted(vector<int>&arr){
+  int n = arr.size();
   for(int i=1;i<n;i++){
-    if(arr[i] < arr[i-1]){
+    if(arr[i-1] > arr[i])
       return false;
-    }
+  }
     return true;
 }
 int main(){
-  int arr[5] = {2,1,3,4,5};
-  cout<<isSorted(arr,5);
+  vector<int>arr = {2,1,3,4,5};
+  cout<<isSorted(arr);
 }
