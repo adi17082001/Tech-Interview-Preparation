@@ -14,6 +14,8 @@ int digitSum(int n){
 // 1234 = 4 + 3 + digit_sum(12)....
 // digit_sum(n) = digit_sum(n/10) + last_digit
 
+// always dry run these functions for better understanding
+
 int digitSumRecursion(int n){
 	if(n==0) return 0;
 	return digitSumRecursion(n/10) + n%10;
